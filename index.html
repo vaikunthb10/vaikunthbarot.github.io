@@ -1,84 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vaikunth Barot | Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-slate-50 text-slate-900 font-sans">
 
+    <!-- NAV -->
     <nav class="p-6 flex justify-between items-center bg-white shadow-sm sticky top-0 z-50">
         <h1 class="text-xl font-bold tracking-tight">VAIKUNTH BAROT</h1>
-        <div class="space-x-6">
+        <div class="space-x-6 font-medium">
             <a href="#about" class="hover:text-blue-600">About</a>
             <a href="#experience" class="hover:text-blue-600">Experience</a>
             <a href="#projects" class="hover:text-blue-600">Projects</a>
         </div>
     </nav>
 
-    <header class="py-20 px-6 text-center bg-gradient-to-r from-slate-900 to-slate-800 text-white">
-        <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Mechanical Engineer & Project Manager</h2>
-        <p class="text-lg text-slate-300 max-w-2xl mx-auto">Specializing in Mechatronics and optimizing engineering workflows through data-driven insights.</p>
-        <div class="mt-8">
-            <a href="mailto:vaikunth29@gmail.com" class="bg-blue-600 px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition">Get In Touch</a>
+    <!-- HERO -->
+    <header class="py-24 px-6 text-center bg-gradient-to-r from-slate-900 to-slate-800 text-white">
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-4">
+            Mechanical Engineer • Mechatronics • Systems Thinking
+        </h2>
+        <p class="text-lg text-slate-300 max-w-2xl mx-auto">
+            I build reliable mechanical systems and lead technical projects using
+            data-driven decision making and hands-on engineering experience.
+        </p>
+
+        <div class="mt-8 flex justify-center gap-4">
+            <a href="mailto:vaikunth29@gmail.com"
+               class="bg-blue-600 px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition">
+                Get In Touch
+            </a>
+            <a href="https://www.linkedin.com/in/YOUR_LINK"
+               class="px-6 py-3 rounded-lg border border-slate-400 text-slate-300 hover:text-white hover:border-white transition">
+                LinkedIn
+            </a>
         </div>
     </header>
 
-    <section id="about" class="py-16 max-w-5xl mx-auto px-6">
-        <h3 class="text-2xl font-bold mb-8 border-b-2 border-blue-600 inline-block">Technical Toolbox</h3>
+    <!-- ABOUT -->
+    <section id="about" class="py-20 max-w-4xl mx-auto px-6 text-center">
+        <h3 class="text-2xl font-bold mb-6">About Me</h3>
+        <p class="text-slate-600 leading-relaxed">
+            Mechanical Engineer specializing in Mechatronics with experience managing
+            multi-million-dollar engineering projects in regulated manufacturing environments.
+            I enjoy bridging design, automation, and execution to ship systems that scale.
+        </p>
+    </section>
+
+    <!-- TOOLBOX -->
+    <section class="pb-20 max-w-5xl mx-auto px-6">
+        <h3 class="text-2xl font-bold mb-8 border-b-2 border-blue-600 inline-block">
+            Technical Toolbox
+        </h3>
+
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div class="p-4 bg-white shadow-sm border rounded text-center">SolidWorks (CSWA)</div>
-            <div class="p-4 bg-white shadow-sm border rounded text-center">SAP & QMS</div>
             <div class="p-4 bg-white shadow-sm border rounded text-center">Python / MATLAB</div>
+            <div class="p-4 bg-white shadow-sm border rounded text-center">SAP / TrackWise QMS</div>
             <div class="p-4 bg-white shadow-sm border rounded text-center">AutoCAD</div>
         </div>
     </section>
 
-    <section id="experience" class="py-16 bg-slate-100 px-6">
+    <!-- EXPERIENCE -->
+    <section id="experience" class="py-20 bg-slate-100 px-6">
         <div class="max-w-5xl mx-auto">
             <h3 class="text-2xl font-bold mb-8">Professional Experience</h3>
-            <div class="space-y-8">
-                <div class="bg-white p-6 rounded-xl shadow-sm">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <h4 class="text-xl font-bold">Junior Project Manager</h4>
-                            <p class="text-blue-600 font-medium">Apotex | May 2023 – Aug 2024</p>
-                        </div>
-                    </div>
-                    <ul class="mt-4 list-disc list-inside text-slate-600 space-y-2">
-                        <li>Managed \$5M+ engineering budgets and cross-functional teams. [cite: 16]</li>
-                        <li>Reduced planned maintenance hours by 20% for 1,500 assets. [cite: 15]</li>
-                        <li>Closed 40+ change controls using QMS Trackwise. [cite: 17]</li>
-                    </ul>
-                </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-sm">
+                <h4 class="text-xl font-bold">Junior Project Manager</h4>
+                <p class="text-blue-600 font-medium">
+                    Apotex | May 2023 – Aug 2024
+                </p>
+
+                <ul class="mt-4 list-disc list-inside text-slate-600 space-y-2">
+                    <li>Owned delivery of $5M+ in capital engineering projects across cross-functional teams</li>
+                    <li>Reduced planned maintenance hours by 20% across 1,500 GMP-regulated assets</li>
+                    <li>Executed 40+ engineering change controls using TrackWise QMS with zero audit findings</li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <section id="projects" class="py-16 max-w-5xl mx-auto px-6">
-        <h3 class="text-2xl font-bold mb-8">Featured Projects</h3>
+    <!-- PROJECTS -->
+    <section id="projects" class="py-20 max-w-5xl mx-auto px-6">
+        <h3 class="text-2xl font-bold mb-10">Featured Projects</h3>
+
         <div class="grid md:grid-cols-2 gap-8">
-            <div class="border rounded-lg overflow-hidden bg-white shadow-md">
+
+            <!-- SPACE MINING ROBOT -->
+            <div class="border rounded-xl overflow-hidden bg-white shadow-md hover:shadow-lg transition">
+                <img
+                    src="assets/space-mining-robot.jpg"
+                    alt="Space Mining Robot"
+                    class="w-full h-56 object-cover"
+                />
+
                 <div class="p-6">
                     <h4 class="font-bold text-lg">Space Mining Robot</h4>
-                    <p class="text-sm text-slate-500 mb-4">3rd Place - Ryerson Design League [cite: 41]</p>
-                    <p class="text-slate-600">Designed a jackhammer-equipped robot using Aluminum 1060 and Titanium supports for lightweight durability. [cite: 32]</p>
+                    <p class="text-sm text-slate-500 mb-3">
+                        3rd Place – Ryerson Design League
+                    </p>
+
+                    <p class="text-slate-600 mb-4">
+                        Designed a jackhammer-equipped robotic system using Aluminum 1060 and
+                        titanium supports, optimized for strength-to-weight ratio and durability
+                        in extreme environments.
+                    </p>
+
+                    <div class="flex flex-wrap gap-2 text-sm">
+                        <span class="bg-slate-100 px-3 py-1 rounded-full">SolidWorks</span>
+                        <span class="bg-slate-100 px-3 py-1 rounded-full">Material Selection</span>
+                        <span class="bg-slate-100 px-3 py-1 rounded-full">DFMEA</span>
+                        <span class="bg-slate-100 px-3 py-1 rounded-full">Mechatronics</span>
+                    </div>
                 </div>
             </div>
-            <div class="border rounded-lg overflow-hidden bg-white shadow-md">
-                <div class="p-6">
-                    <h4 class="font-bold text-lg">Capstone: Leaf Blower Redesign</h4>
-                    <p class="text-sm text-slate-500 mb-4">DFMA Analysis [cite: 26]</p>
-                    <p class="text-slate-600">Led the redesign of a consumer-grade leaf blower to enhance manufacturability and cost-effectiveness using SolidWorks. [cite: 28, 29]</p>
+
+            <!-- CAPSTONE -->
+            <div class="border rounded-xl bg-white shadow-md p-6">
+                <h4 class="font-bold text-lg">Capstone: Leaf Blower Redesign</h4>
+                <p class="text-sm text-slate-500 mb-3">DFMA & Cost Optimization</p>
+
+                <p class="text-slate-600 mb-4">
+                    Led the redesign of a consumer-grade leaf blower to improve manufacturability
+                    and reduce cost using DFMA principles and SolidWorks.
+                </p>
+
+                <div class="flex flex-wrap gap-2 text-sm">
+                    <span class="bg-slate-100 px-3 py-1 rounded-full">DFMA</span>
+                    <span class="bg-slate-100 px-3 py-1 rounded-full">SolidWorks</span>
+                    <span class="bg-slate-100 px-3 py-1 rounded-full">Cost Reduction</span>
                 </div>
             </div>
+
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer class="py-10 text-center text-slate-500 border-t">
         <p>© 2026 Vaikunth Barot | Toronto, ON</p>
-        <p class="text-sm mt-2">Built with HTML, Tailwind CSS, and Passion.</p>
+        <p class="text-sm mt-2">
+            Built with HTML, Tailwind CSS, and a systems mindset.
+        </p>
     </footer>
 
 </body>
