@@ -346,14 +346,18 @@
 
     .project-img {
       width: 100%;
-      height: 210px;
+      height: 220px;
       object-fit: cover;
       display: block;
       border-bottom: 1px solid var(--rule);
-      background: var(--paper);
+      background: #111;
     }
 
-    .project-img.contain { object-fit: contain; }
+    .project-img.light-bg {
+      background: #e8e5de;
+      object-fit: contain;
+      padding: 1.5rem;
+    }
 
     .project-index {
       font-family: 'DM Mono', monospace;
@@ -631,7 +635,7 @@
   </div>
 
   <div class="project-card has-img">
-    <img src="assets/dfma-leaf-blower-cad.png" alt="DFMA Leaf Blower CAD Model" class="project-img contain" />
+    <img src="assets/dfma-leaf-blower-cad.png" alt="DFMA Leaf Blower CAD Model" class="project-img light-bg" />
     <div class="project-card-body">
       <div class="project-index">Project 02</div>
       <h3 class="project-title">DFMA Leaf Blower Redesign</h3>
@@ -723,7 +727,7 @@
     </div>
     <div class="tool-cell">
       <div class="tool-category">Certification</div>
-      <div class="tool-name">CSWA · ASME Member</div>
+      <div class="tool-name">CSWA</div>
     </div>
   </div>
 </section>
