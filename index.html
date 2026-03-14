@@ -1,210 +1,790 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vaikunth Barot | Mechanical Engineer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vaikunth Barot — Mechanical Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-<body class="bg-slate-50 text-slate-900 font-sans">
+    :root {
+      --ink: #0d0d0d;
+      --paper: #f5f2eb;
+      --accent: #c94a1f;
+      --dim: #7a7268;
+      --rule: #d8d2c6;
+      --white: #fefdfb;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.1rem 2.5rem;
+      border-bottom: 1px solid var(--rule);
+      background: rgba(245,242,235,0.92);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.25rem;
+      letter-spacing: 0.12em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ─── HERO ────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .hero-left {
+      padding: 10rem 3rem 5rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-right: 1px solid var(--rule);
+    }
+
+    .hero-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(4.5rem, 9vw, 8rem);
+      line-height: 0.92;
+      letter-spacing: 0.02em;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-name span { color: var(--accent); }
+
+    .hero-desc {
+      font-size: 1rem;
+      color: var(--dim);
+      max-width: 38ch;
+      margin-bottom: 2.5rem;
+      line-height: 1.75;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .btn-primary {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 0.75rem 1.75rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--ink);
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-primary:hover { background: var(--accent); border-color: var(--accent); }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--ink);
+      padding: 0.75rem 1.75rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--rule);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--ink); }
+
+    .hero-right {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+    }
+
+    .hero-right-top {
+      border-bottom: 1px solid var(--rule);
+      padding: 4rem 3rem;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      width: 100%;
+    }
+
+    .stat {
+      padding: 1.5rem;
+      border-right: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+    .stat:nth-child(even) { border-right: none; }
+    .stat:nth-child(3), .stat:nth-child(4) { border-bottom: none; }
+
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.75rem;
+      color: var(--ink);
+      line-height: 1;
+      letter-spacing: 0.02em;
+    }
+    .stat-num span { color: var(--accent); font-size: 1.5rem; }
+
+    .stat-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-top: 0.4rem;
+    }
+
+    .hero-right-bottom {
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .skills-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-bottom: 1.2rem;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .skill-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      padding: 0.35rem 0.85rem;
+      border: 1px solid var(--rule);
+      color: var(--dim);
+      background: var(--white);
+    }
+
+    /* ─── SECTION WRAPPER ────────────────────────── */
+    .section {
+      padding: 6rem 2.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .section-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      letter-spacing: 0.03em;
+      color: var(--ink);
+    }
+
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+
+    /* ─── EXPERIENCE ─────────────────────────────── */
+    .exp-block {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 4rem;
+      max-width: 960px;
+    }
+
+    .exp-meta {
+      padding-top: 0.25rem;
+    }
+
+    .exp-company {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+    }
+
+    .exp-period {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      color: var(--dim);
+    }
+
+    .exp-title {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+      color: var(--ink);
+    }
+
+    .exp-role {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .exp-desc {
+      color: var(--dim);
+      margin-bottom: 2rem;
+      max-width: 60ch;
+      font-size: 0.95rem;
+    }
+
+    .exp-achievements {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .achievement {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+
+    .achievement-marker {
+      width: 18px;
+      height: 18px;
+      background: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .achievement-marker svg { width: 8px; height: 8px; fill: var(--paper); }
+
+    .achievement p {
+      font-size: 0.88rem;
+      color: var(--dim);
+      line-height: 1.5;
+    }
+
+    /* ─── PROJECTS ────────────────────────────────── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: var(--rule);
+    }
+
+    .project-card {
+      background: var(--white);
+      padding: 2.5rem;
+      position: relative;
+      transition: background 0.2s;
+    }
+    .project-card:hover { background: var(--paper); }
+
+    .project-index {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .project-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: 0.03em;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+      line-height: 1.1;
+    }
+
+    .project-sub {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--dim);
+      letter-spacing: 0.06em;
+      margin-bottom: 1rem;
+    }
+
+    .project-desc {
+      font-size: 0.9rem;
+      color: var(--dim);
+      margin-bottom: 1.75rem;
+      max-width: 45ch;
+      line-height: 1.7;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .project-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.63rem;
+      letter-spacing: 0.06em;
+      padding: 0.25rem 0.7rem;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      color: var(--dim);
+    }
+
+    .project-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 0;
+      background: var(--paper);
+    }
+
+    .project-card.has-img {
+      padding: 0;
+    }
+
+    .project-card.has-img .project-card-body {
+      padding: 2rem 2.5rem 2.5rem;
+    }
+
+    /* ─── TECHNICAL TOOLS ─────────────────────────── */
+    .tools-section {
+      padding: 6rem 2.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 1px solid var(--rule);
+      max-width: 900px;
+    }
+
+    .tool-cell {
+      padding: 1.25rem 1.5rem;
+      border-right: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+    .tool-cell:nth-child(4n) { border-right: none; }
+    .tool-cell:nth-last-child(-n+4) { border-bottom: none; }
+
+    .tool-category {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .tool-name {
+      font-size: 0.88rem;
+      color: var(--ink);
+      font-weight: 400;
+    }
+
+    /* ─── FOOTER ──────────────────────────────────── */
+    footer {
+      padding: 3rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.1em;
+      color: var(--ink);
+    }
+
+    .footer-contact {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .footer-contact a {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      color: var(--dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-contact a:hover { color: var(--accent); }
+
+    .footer-copy {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--dim);
+    }
+
+    /* ─── FADE-IN ANIMATION ───────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ─── RESPONSIVE ──────────────────────────────── */
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .hero-left { padding: 8rem 1.5rem 4rem; }
+      .exp-block { grid-template-columns: 1fr; gap: 1.5rem; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .tools-grid { grid-template-columns: 1fr 1fr; }
+      .exp-achievements { grid-template-columns: 1fr; }
+      nav { padding: 1rem 1.5rem; }
+      .section { padding: 4rem 1.5rem; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+      .footer-contact { flex-direction: column; gap: 0.75rem; align-items: center; }
+    }
+  </style>
+</head>
+<body>
 
 <!-- NAV -->
-<nav class="px-6 py-4 flex justify-between items-center bg-white border-b sticky top-0 z-50">
-    <h1 class="text-lg font-bold tracking-tight">VAIKUNTH BAROT</h1>
-    <div class="space-x-6 text-sm font-medium">
-        <a href="#about" class="hover:text-blue-600">About</a>
-        <a href="#experience" class="hover:text-blue-600">Experience</a>
-        <a href="#projects" class="hover:text-blue-600">Projects</a>
-    </div>
+<nav>
+  <a class="nav-logo" href="#">V. Barot</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="/cdn-cgi/l/email-protection#5e283f37352b302a366c671e39333f3732703d3133">Contact</a></li>
+  </ul>
 </nav>
 
 <!-- HERO -->
-<header class="px-6 py-16 bg-gradient-to-br from-slate-900 to-slate-800 text-white">
-    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-center">
-
-        <div>
-            <h2 class="text-4xl font-extrabold leading-tight mb-4">
-                Mechanical Engineer<br/>
-                <span class="text-blue-400">Mechatronics & Systems</span>
-            </h2>
-            <p class="text-slate-300 max-w-md">
-                I design and deliver reliable mechanical systems across regulated
-                manufacturing, automation, and product design.
-            </p>
-
-            <div class="mt-6 flex gap-4">
-                <a href="mailto:vaikunth29@gmail.com"
-                   class="bg-blue-600 px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-blue-700 transition">
-                    Contact Me
-                </a>
-                <a href="https://www.linkedin.com/in/vaikunthbarot/"
-                   class="px-5 py-2.5 rounded-lg border border-slate-500 text-slate-300 text-sm hover:text-white hover:border-white transition">
-                    LinkedIn
-                </a>
-            </div>
-        </div>
-
-        <!-- Quick Stats -->
-        <div class="grid grid-cols-2 gap-4 text-sm">
-            <div class="bg-white/10 rounded-xl p-4">
-                <p class="text-2xl font-bold">5M+</p>
-                <p class="text-slate-300">Capital Projects</p>
-            </div>
-            <div class="bg-white/10 rounded-xl p-4">
-                <p class="text-2xl font-bold">1500+</p>
-                <p class="text-slate-300">Assets Managed</p>
-            </div>
-            <div class="bg-white/10 rounded-xl p-4">
-                <p class="text-2xl font-bold">40+</p>
-                <p class="text-slate-300">Change Controls</p>
-            </div>
-            <div class="bg-white/10 rounded-xl p-4">
-                <p class="text-2xl font-bold">0</p>
-                <p class="text-slate-300">Audit Findings</p>
-            </div>
-        </div>
-
+<header class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Mechanical Engineer · Toronto, ON</p>
+    <h1 class="hero-name">
+      Vaiku<span>nth</span><br/>Barot
+    </h1>
+    <p class="hero-desc">
+      Mechatronics specialist with a track record delivering capital projects
+      in regulated pharmaceutical manufacturing. I bridge design, automation,
+      and execution to build systems that scale.
+    </p>
+    <div class="hero-cta">
+      <a class="btn-primary" href="/cdn-cgi/l/email-protection#aed8cfc7c5dbc0dac69c97eec9c3cfc7c280cdc1c3">Get in touch</a>
+      <a class="btn-secondary" href="https://www.linkedin.com/in/vaikunthbarot/" target="_blank">LinkedIn ↗</a>
     </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-right-top">
+      <div class="stat-grid">
+        <div class="stat">
+          <div class="stat-num">$5<span>M+</span></div>
+          <div class="stat-label">Capital Projects</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">1.5<span>K+</span></div>
+          <div class="stat-label">Assets Managed</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">40<span>+</span></div>
+          <div class="stat-label">Change Controls</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">0</div>
+          <div class="stat-label">Audit Findings</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-right-bottom">
+      <p class="skills-label">Core competencies</p>
+      <div class="skills-list">
+        <span class="skill-tag">Mechanical Design</span>
+        <span class="skill-tag">GMP Manufacturing</span>
+        <span class="skill-tag">Mechatronics</span>
+        <span class="skill-tag">Capital Project Delivery</span>
+        <span class="skill-tag">DFMA</span>
+        <span class="skill-tag">FEA Analysis</span>
+        <span class="skill-tag">Root Cause Analysis</span>
+        <span class="skill-tag">PLC Systems</span>
+      </div>
+    </div>
+  </div>
 </header>
 
-<!-- ABOUT + CORE -->
-<section id="about" class="py-16 px-6">
-    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-start">
-
-        <!-- About -->
-        <div>
-            <h3 class="text-2xl font-bold mb-4">About Me</h3>
-            <p class="text-slate-600 leading-relaxed">
-                Mechanical Engineer specializing in Mechatronics with hands-on experience
-                delivering capital projects in GMP-regulated pharmaceutical manufacturing.
-                I enjoy bridging design, automation, and execution to build systems that scale.
-            </p>
-        </div>
-
-        <!-- Core Competencies -->
-        <div class="grid grid-cols-2 gap-4 text-sm">
-
-            <div class="bg-white p-4 rounded-xl shadow-sm">
-                <p class="font-semibold mb-1">Mechanical Design</p>
-                <p class="text-slate-500">CAD, DFMA, tolerances</p>
-            </div>
-
-            <div class="bg-white p-4 rounded-xl shadow-sm">
-                <p class="font-semibold mb-1">Manufacturing</p>
-                <p class="text-slate-500">GMP, asset lifecycle</p>
-            </div>
-
-            <div class="bg-white p-4 rounded-xl shadow-sm">
-                <p class="font-semibold mb-1">Mechatronics</p>
-                <p class="text-slate-500">System integration</p>
-            </div>
-
-            <div class="bg-white p-4 rounded-xl shadow-sm">
-                <p class="font-semibold mb-1">Project Delivery</p>
-                <p class="text-slate-500">Cost, schedule, risk</p>
-            </div>
-
-            <div class="bg-white p-4 rounded-xl shadow-sm col-span-2">
-                <p class="font-semibold mb-1">Data & Analysis</p>
-                <p class="text-slate-500">Python, MATLAB, decision support</p>
-            </div>
-
-        </div>
-    </div>
-</section>
-
 <!-- EXPERIENCE -->
-<section id="experience" class="py-16 bg-slate-100 px-6">
-    <div class="max-w-5xl mx-auto">
-        <h3 class="text-2xl font-bold mb-8">Professional Experience</h3>
+<section id="experience" class="section">
+  <div class="section-header reveal">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Experience</h2>
+    <div class="section-rule"></div>
+  </div>
 
-        <div class="bg-white rounded-xl p-8 shadow-sm">
-            <div class="flex justify-between items-start mb-4">
-                <div>
-                    <h4 class="text-xl font-bold">Junior Project Manager</h4>
-                    <p class="text-blue-600 font-medium">Apotex</p>
-                </div>
-                <p class="text-sm text-slate-500">May 2023 – Aug 2024</p>
-            </div>
-
-            <p class="text-slate-600 mb-6 max-w-3xl">
-                Delivered capital engineering projects within GMP-regulated environments,
-                coordinating engineering, quality, and operations teams to ensure compliant,
-                reliable manufacturing systems.
-            </p>
-
-            <div class="grid md:grid-cols-3 gap-6 text-sm text-slate-600">
-                <p>• Managed $5M+ capital portfolio</p>
-                <p>• Executed 40+ TrackWise change controls</p>
-                <p>• Reduced maintenance hours by 20%</p>
-                <p>• Supported 1,500+ production assets</p>
-                <p>• Led cross-functional project teams</p>
-                <p>• Zero audit observations</p>
-            </div>
-        </div>
+  <div class="exp-block reveal">
+    <div class="exp-meta">
+      <div class="exp-company">Apotex</div>
+      <div class="exp-period">May 2023 – Aug 2024</div>
     </div>
+    <div>
+      <div class="exp-role">Junior Project Manager — Building Systems</div>
+      <p class="exp-desc">
+        Delivered capital engineering projects within GMP-regulated pharmaceutical
+        manufacturing, coordinating engineering, quality, and operations teams to
+        ensure compliant, reliable building systems.
+      </p>
+      <div class="exp-achievements">
+        <div class="achievement">
+          <div class="achievement-marker">
+            <svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4"/></svg>
+          </div>
+          <p>Managed $5M+ capital portfolio across building systems</p>
+        </div>
+        <div class="achievement">
+          <div class="achievement-marker">
+            <svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4"/></svg>
+          </div>
+          <p>Executed 40+ TrackWise change controls in QMS</p>
+        </div>
+        <div class="achievement">
+          <div class="achievement-marker">
+            <svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4"/></svg>
+          </div>
+          <p>Reduced preventive maintenance hours by 20%</p>
+        </div>
+        <div class="achievement">
+          <div class="achievement-marker">
+            <svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4"/></svg>
+          </div>
+          <p>Supported 1,500+ production assets with SAP</p>
+        </div>
+        <div class="achievement">
+          <div class="achievement-marker">
+            <svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4"/></svg>
+          </div>
+          <p>Led cross-functional teams across engineering & quality</p>
+        </div>
+        <div class="achievement">
+          <div class="achievement-marker">
+            <svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4"/></svg>
+          </div>
+          <p>Zero audit observations across all managed projects</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- PROJECTS -->
-<section id="projects" class="py-16 px-6">
-    <div class="max-w-5xl mx-auto">
-        <h3 class="text-2xl font-bold mb-8">Selected Projects</h3>
+<section id="projects" class="section" style="padding-bottom: 0;">
+  <div class="section-header reveal">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Projects</h2>
+    <div class="section-rule"></div>
+  </div>
+</section>
 
-        <div class="grid md:grid-cols-2 gap-8">
-
-            <!-- Space Mining -->
-            <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition">
-                <img src="assets/space-mining-robot.png"
-                     class="w-full h-52 object-cover"
-                     alt="Space Mining Robot" />
-                <div class="p-6">
-                    <h4 class="font-bold text-lg">Space Mining Robot</h4>
-                    <p class="text-sm text-slate-500 mb-3">
-                        3rd Place – Ryerson Design League
-                    </p>
-                    <p class="text-slate-600 mb-4">
-                        Designed a jackhammer-equipped robotic system optimized for
-                        strength-to-weight ratio in extreme environments.
-                    </p>
-                    <div class="flex flex-wrap gap-2 text-sm">
-                        <span class="bg-slate-100 px-3 py-1 rounded-full">SolidWorks</span>
-                        <span class="bg-slate-100 px-3 py-1 rounded-full">DFMEA</span>
-                        <span class="bg-slate-100 px-3 py-1 rounded-full">Mechatronics</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Capstone -->
-            <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition">
-                <img src="assets/dfma-leaf-blower-cad.png"
-                     class="w-full h-52 object-contain bg-slate-50"
-                     alt="DFMA Leaf Blower CAD Model" />
-                <div class="p-6">
-                    <h4 class="font-bold text-lg">DFMA Leaf Blower Redesign</h4>
-                    <p class="text-sm text-slate-500 mb-3">
-                        Capstone Project
-                    </p>
-                    <p class="text-slate-600 mb-4">
-                        Applied DFMA principles to reduce part count, simplify assembly,
-                        and lower manufacturing cost.
-                    </p>
-                    <div class="flex flex-wrap gap-2 text-sm">
-                        <span class="bg-slate-100 px-3 py-1 rounded-full">DFMA</span>
-                        <span class="bg-slate-100 px-3 py-1 rounded-full">Cost Reduction</span>
-                        <span class="bg-slate-100 px-3 py-1 rounded-full">Manufacturing</span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+<div class="projects-grid reveal">
+  <div class="project-card has-img">
+    <img src="assets/space-mining-robot.png" alt="Space Mining Robot" class="project-img" />
+    <div class="project-card-body">
+      <div class="project-index">Project 01</div>
+      <h3 class="project-title">Space Mining Robot</h3>
+      <p class="project-sub">Ryerson Design League · 3rd Place</p>
+      <p class="project-desc">
+        Designed a jackhammer-equipped robotic system optimized for strength-to-weight
+        ratio in extreme environments. Conducted full FEA analysis and DFMEA on
+        critical structural components.
+      </p>
+      <div class="project-tags">
+        <span class="project-tag">SolidWorks</span>
+        <span class="project-tag">FEA</span>
+        <span class="project-tag">DFMEA</span>
+        <span class="project-tag">Mechatronics</span>
+        <span class="project-tag">Structural Analysis</span>
+      </div>
     </div>
+  </div>
+
+  <div class="project-card has-img">
+    <img src="assets/dfma-leaf-blower-cad.png" alt="DFMA Leaf Blower CAD Model" class="project-img" style="object-fit: contain;" />
+    <div class="project-card-body">
+      <div class="project-index">Project 02</div>
+      <h3 class="project-title">DFMA Leaf Blower Redesign</h3>
+      <p class="project-sub">Capstone · 2025</p>
+      <p class="project-desc">
+        Applied Design for Manufacturing & Assembly principles to reduce part count,
+        simplify assembly procedures, and lower total manufacturing cost on a consumer
+        power tool platform.
+      </p>
+      <div class="project-tags">
+        <span class="project-tag">DFMA</span>
+        <span class="project-tag">SolidWorks</span>
+        <span class="project-tag">Cost Reduction</span>
+        <span class="project-tag">DFM</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-card" style="grid-column: 1 / -1;">
+    <div class="project-index">Project 03</div>
+    <h3 class="project-title">Motor Housing Bearing Installer</h3>
+    <p class="project-sub">Electro-Pneumatic Machine · 2024</p>
+    <p class="project-desc">
+      Built a fully automated electro-pneumatic press system with PLC control for
+      precision bearing installation. Reduced manual assembly time and improved
+      repeatability across production runs.
+    </p>
+    <div class="project-tags">
+      <span class="project-tag">PLC</span>
+      <span class="project-tag">Pneumatics</span>
+      <span class="project-tag">Automation</span>
+      <span class="project-tag">Machine Design</span>
+    </div>
+  </div>
+</div>
+
+<!-- TOOLS -->
+<section id="tools" class="tools-section">
+  <div class="section-header reveal">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Technical Toolkit</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <div class="tools-grid reveal">
+    <div class="tool-cell">
+      <div class="tool-category">CAD</div>
+      <div class="tool-name">SolidWorks</div>
+    </div>
+    <div class="tool-cell">
+      <div class="tool-category">CAD</div>
+      <div class="tool-name">AutoCAD</div>
+    </div>
+    <div class="tool-cell">
+      <div class="tool-category">ERP</div>
+      <div class="tool-name">SAP</div>
+    </div>
+    <div class="tool-cell">
+      <div class="tool-category">QMS</div>
+      <div class="tool-name">TrackWise</div>
+    </div>
+    <div class="tool-cell">
+      <div class="tool-category">Programming</div>
+      <div class="tool-name">Python</div>
+    </div>
+    <div class="tool-cell">
+      <div class="tool-category">Engineering</div>
+      <div class="tool-name">MATLAB / Simulink</div>
+    </div>
+    <div class="tool-cell">
+      <div class="tool-category">Analysis</div>
+      <div class="tool-name">FEA</div>
+    </div>
+    <div class="tool-cell">
+      <div class="tool-category">Standards</div>
+      <div class="tool-name">GD&T</div>
+    </div>
+    <div class="tool-cell">
+      <div class="tool-category">Methodology</div>
+      <div class="tool-name">Root Cause Analysis</div>
+    </div>
+    <div class="tool-cell">
+      <div class="tool-category">Methodology</div>
+      <div class="tool-name">DFMA / DFMEA</div>
+    </div>
+    <div class="tool-cell">
+      <div class="tool-category">Reporting</div>
+      <div class="tool-name">Excel Dashboards</div>
+    </div>
+    <div class="tool-cell">
+      <div class="tool-category">Certification</div>
+      <div class="tool-name">CSWA · ASME Member</div>
+    </div>
+  </div>
 </section>
 
 <!-- FOOTER -->
-<footer class="py-8 text-center text-sm text-slate-500 border-t">
-    © 2026 Vaikunth Barot · Toronto, ON
+<footer>
+  <div class="footer-name">Vaikunth Barot</div>
+  <div class="footer-contact">
+    <a href="/cdn-cgi/l/email-protection#1761767e7c6279637f252e57707a767e7b3974787a"><span class="__cf_email__" data-cfemail="ceb8afa7a5bba0baa6fcf78ea9a3afa7a2e0ada1a3">[email&#160;protected]</span></a>
+    <a href="https://www.linkedin.com/in/vaikunthbarot/" target="_blank">LinkedIn ↗</a>
+  </div>
+  <div class="footer-copy">© 2026 · Toronto, ON</div>
 </footer>
 
-</body>
-</html>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  const reveals = docume
