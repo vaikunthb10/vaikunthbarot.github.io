@@ -28,7 +28,7 @@
       overflow-x: hidden;
     }
 
-    /* ─── NAV ─────────────────────────────────────── */
+    /* NAV */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -38,7 +38,7 @@
       align-items: center;
       padding: 1.1rem 2.5rem;
       border-bottom: 1px solid var(--rule);
-      background: rgba(245,242,235,0.92);
+      background: rgba(245,242,235,0.93);
       backdrop-filter: blur(12px);
     }
 
@@ -67,7 +67,7 @@
     }
     .nav-links a:hover { color: var(--accent); }
 
-    /* ─── HERO ────────────────────────────────────── */
+    /* HERO */
     .hero {
       min-height: 100vh;
       display: grid;
@@ -100,7 +100,6 @@
       color: var(--ink);
       margin-bottom: 1.5rem;
     }
-
     .hero-name span { color: var(--accent); }
 
     .hero-desc {
@@ -111,10 +110,7 @@
       line-height: 1.75;
     }
 
-    .hero-cta {
-      display: flex;
-      gap: 1rem;
-    }
+    .hero-cta { display: flex; gap: 1rem; }
 
     .btn-primary {
       background: var(--ink);
@@ -126,7 +122,8 @@
       text-transform: uppercase;
       text-decoration: none;
       border: 1px solid var(--ink);
-      transition: background 0.2s, color 0.2s;
+      transition: background 0.2s, border-color 0.2s;
+      display: inline-block;
     }
     .btn-primary:hover { background: var(--accent); border-color: var(--accent); }
 
@@ -140,7 +137,8 @@
       text-transform: uppercase;
       text-decoration: none;
       border: 1px solid var(--rule);
-      transition: border-color 0.2s, color 0.2s;
+      transition: border-color 0.2s;
+      display: inline-block;
     }
     .btn-secondary:hover { border-color: var(--ink); }
 
@@ -159,7 +157,6 @@
     .stat-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 0;
       width: 100%;
     }
 
@@ -178,7 +175,7 @@
       line-height: 1;
       letter-spacing: 0.02em;
     }
-    .stat-num span { color: var(--accent); font-size: 1.5rem; }
+    .stat-num sup { color: var(--accent); font-size: 1.4rem; vertical-align: baseline; }
 
     .stat-label {
       font-family: 'DM Mono', monospace;
@@ -205,11 +202,7 @@
       margin-bottom: 1.2rem;
     }
 
-    .skills-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
+    .skills-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 
     .skill-tag {
       font-family: 'DM Mono', monospace;
@@ -221,7 +214,7 @@
       background: var(--white);
     }
 
-    /* ─── SECTION WRAPPER ────────────────────────── */
+    /* SECTIONS */
     .section {
       padding: 6rem 2.5rem;
       border-bottom: 1px solid var(--rule);
@@ -254,16 +247,12 @@
       background: var(--rule);
     }
 
-    /* ─── EXPERIENCE ─────────────────────────────── */
+    /* EXPERIENCE */
     .exp-block {
       display: grid;
       grid-template-columns: 220px 1fr;
       gap: 4rem;
       max-width: 960px;
-    }
-
-    .exp-meta {
-      padding-top: 0.25rem;
     }
 
     .exp-company {
@@ -279,13 +268,6 @@
       font-size: 0.68rem;
       letter-spacing: 0.08em;
       color: var(--dim);
-    }
-
-    .exp-title {
-      font-size: 1rem;
-      font-weight: 500;
-      margin-bottom: 0.75rem;
-      color: var(--ink);
     }
 
     .exp-role {
@@ -319,15 +301,23 @@
     .achievement-marker {
       width: 18px;
       height: 18px;
+      min-width: 18px;
       background: var(--ink);
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-shrink: 0;
       margin-top: 0.1rem;
     }
 
-    .achievement-marker svg { width: 8px; height: 8px; fill: var(--paper); }
+    .achievement-marker svg {
+      width: 9px;
+      height: 9px;
+      fill: none;
+      stroke: var(--paper);
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
 
     .achievement p {
       font-size: 0.88rem;
@@ -335,7 +325,7 @@
       line-height: 1.5;
     }
 
-    /* ─── PROJECTS ────────────────────────────────── */
+    /* PROJECTS */
     .projects-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -346,17 +336,31 @@
     .project-card {
       background: var(--white);
       padding: 2.5rem;
-      position: relative;
       transition: background 0.2s;
     }
     .project-card:hover { background: var(--paper); }
+
+    .project-card.has-img { padding: 0; }
+
+    .project-card-body { padding: 2rem 2.5rem 2.5rem; }
+
+    .project-img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      display: block;
+      border-bottom: 1px solid var(--rule);
+      background: var(--paper);
+    }
+
+    .project-img.contain { object-fit: contain; }
 
     .project-index {
       font-family: 'DM Mono', monospace;
       font-size: 0.65rem;
       letter-spacing: 0.1em;
       color: var(--accent);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
     }
 
     .project-title {
@@ -364,7 +368,7 @@
       font-size: 1.8rem;
       letter-spacing: 0.03em;
       color: var(--ink);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
       line-height: 1.1;
     }
 
@@ -384,11 +388,7 @@
       line-height: 1.7;
     }
 
-    .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-    }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 
     .project-tag {
       font-family: 'DM Mono', monospace;
@@ -400,25 +400,7 @@
       color: var(--dim);
     }
 
-    .project-img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      display: block;
-      border-bottom: 1px solid var(--rule);
-      margin-bottom: 0;
-      background: var(--paper);
-    }
-
-    .project-card.has-img {
-      padding: 0;
-    }
-
-    .project-card.has-img .project-card-body {
-      padding: 2rem 2.5rem 2.5rem;
-    }
-
-    /* ─── TECHNICAL TOOLS ─────────────────────────── */
+    /* TOOLS */
     .tools-section {
       padding: 6rem 2.5rem;
       border-bottom: 1px solid var(--rule);
@@ -427,7 +409,6 @@
     .tools-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 0;
       border: 1px solid var(--rule);
       max-width: 900px;
     }
@@ -446,21 +427,18 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
     }
 
-    .tool-name {
-      font-size: 0.88rem;
-      color: var(--ink);
-      font-weight: 400;
-    }
+    .tool-name { font-size: 0.88rem; color: var(--ink); }
 
-    /* ─── FOOTER ──────────────────────────────────── */
+    /* FOOTER */
     footer {
       padding: 3rem 2.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      border-top: 1px solid var(--rule);
     }
 
     .footer-name {
@@ -470,10 +448,7 @@
       color: var(--ink);
     }
 
-    .footer-contact {
-      display: flex;
-      gap: 2rem;
-    }
+    .footer-contact { display: flex; gap: 2rem; }
 
     .footer-contact a {
       font-family: 'DM Mono', monospace;
@@ -491,15 +466,7 @@
       color: var(--dim);
     }
 
-    /* ─── FADE-IN ANIMATION ───────────────────────── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .reveal.visible { opacity: 1; transform: none; }
-
-    /* ─── RESPONSIVE ──────────────────────────────── */
+    /* RESPONSIVE */
     @media (max-width: 768px) {
       .hero { grid-template-columns: 1fr; }
       .hero-right { display: none; }
@@ -510,6 +477,7 @@
       .exp-achievements { grid-template-columns: 1fr; }
       nav { padding: 1rem 1.5rem; }
       .section { padding: 4rem 1.5rem; }
+      .tools-section { padding: 4rem 1.5rem; }
       footer { flex-direction: column; gap: 1rem; text-align: center; }
       .footer-contact { flex-direction: column; gap: 0.75rem; align-items: center; }
     }
@@ -521,11 +489,10 @@
 <nav>
   <a class="nav-logo" href="#">V. Barot</a>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#tools">Tools</a></li>
-    <li><a href="/cdn-cgi/l/email-protection#5e283f37352b302a366c671e39333f3732703d3133">Contact</a></li>
+    <li><a href="mailto:vaikunth29@gmail.com">Contact</a></li>
   </ul>
 </nav>
 
@@ -533,16 +500,14 @@
 <header class="hero">
   <div class="hero-left">
     <p class="hero-eyebrow">Mechanical Engineer · Toronto, ON</p>
-    <h1 class="hero-name">
-      Vaiku<span>nth</span><br/>Barot
-    </h1>
+    <h1 class="hero-name">Vaiku<span>nth</span><br/>Barot</h1>
     <p class="hero-desc">
       Mechatronics specialist with a track record delivering capital projects
       in regulated pharmaceutical manufacturing. I bridge design, automation,
       and execution to build systems that scale.
     </p>
     <div class="hero-cta">
-      <a class="btn-primary" href="/cdn-cgi/l/email-protection#aed8cfc7c5dbc0dac69c97eec9c3cfc7c280cdc1c3">Get in touch</a>
+      <a class="btn-primary" href="mailto:vaikunth29@gmail.com">Get in touch</a>
       <a class="btn-secondary" href="https://www.linkedin.com/in/vaikunthbarot/" target="_blank">LinkedIn ↗</a>
     </div>
   </div>
@@ -551,15 +516,15 @@
     <div class="hero-right-top">
       <div class="stat-grid">
         <div class="stat">
-          <div class="stat-num">$5<span>M+</span></div>
+          <div class="stat-num">$5<sup>M+</sup></div>
           <div class="stat-label">Capital Projects</div>
         </div>
         <div class="stat">
-          <div class="stat-num">1.5<span>K+</span></div>
+          <div class="stat-num">1.5<sup>K+</sup></div>
           <div class="stat-label">Assets Managed</div>
         </div>
         <div class="stat">
-          <div class="stat-num">40<span>+</span></div>
+          <div class="stat-num">40<sup>+</sup></div>
           <div class="stat-label">Change Controls</div>
         </div>
         <div class="stat">
@@ -568,7 +533,6 @@
         </div>
       </div>
     </div>
-
     <div class="hero-right-bottom">
       <p class="skills-label">Core competencies</p>
       <div class="skills-list">
@@ -587,14 +551,14 @@
 
 <!-- EXPERIENCE -->
 <section id="experience" class="section">
-  <div class="section-header reveal">
+  <div class="section-header">
     <span class="section-num">01</span>
     <h2 class="section-title">Experience</h2>
     <div class="section-rule"></div>
   </div>
 
-  <div class="exp-block reveal">
-    <div class="exp-meta">
+  <div class="exp-block">
+    <div>
       <div class="exp-company">Apotex</div>
       <div class="exp-period">May 2023 – Aug 2024</div>
     </div>
@@ -607,39 +571,27 @@
       </p>
       <div class="exp-achievements">
         <div class="achievement">
-          <div class="achievement-marker">
-            <svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4"/></svg>
-          </div>
+          <div class="achievement-marker"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg></div>
           <p>Managed $5M+ capital portfolio across building systems</p>
         </div>
         <div class="achievement">
-          <div class="achievement-marker">
-            <svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4"/></svg>
-          </div>
+          <div class="achievement-marker"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg></div>
           <p>Executed 40+ TrackWise change controls in QMS</p>
         </div>
         <div class="achievement">
-          <div class="achievement-marker">
-            <svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4"/></svg>
-          </div>
+          <div class="achievement-marker"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg></div>
           <p>Reduced preventive maintenance hours by 20%</p>
         </div>
         <div class="achievement">
-          <div class="achievement-marker">
-            <svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4"/></svg>
-          </div>
+          <div class="achievement-marker"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg></div>
           <p>Supported 1,500+ production assets with SAP</p>
         </div>
         <div class="achievement">
-          <div class="achievement-marker">
-            <svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4"/></svg>
-          </div>
-          <p>Led cross-functional teams across engineering & quality</p>
+          <div class="achievement-marker"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg></div>
+          <p>Led cross-functional teams across engineering &amp; quality</p>
         </div>
         <div class="achievement">
-          <div class="achievement-marker">
-            <svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4"/></svg>
-          </div>
+          <div class="achievement-marker"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg></div>
           <p>Zero audit observations across all managed projects</p>
         </div>
       </div>
@@ -649,14 +601,14 @@
 
 <!-- PROJECTS -->
 <section id="projects" class="section" style="padding-bottom: 0;">
-  <div class="section-header reveal">
+  <div class="section-header">
     <span class="section-num">02</span>
     <h2 class="section-title">Projects</h2>
     <div class="section-rule"></div>
   </div>
 </section>
 
-<div class="projects-grid reveal">
+<div class="projects-grid">
   <div class="project-card has-img">
     <img src="assets/space-mining-robot.png" alt="Space Mining Robot" class="project-img" />
     <div class="project-card-body">
@@ -679,13 +631,13 @@
   </div>
 
   <div class="project-card has-img">
-    <img src="assets/dfma-leaf-blower-cad.png" alt="DFMA Leaf Blower CAD Model" class="project-img" style="object-fit: contain;" />
+    <img src="assets/dfma-leaf-blower-cad.png" alt="DFMA Leaf Blower CAD Model" class="project-img contain" />
     <div class="project-card-body">
       <div class="project-index">Project 02</div>
       <h3 class="project-title">DFMA Leaf Blower Redesign</h3>
       <p class="project-sub">Capstone · 2025</p>
       <p class="project-desc">
-        Applied Design for Manufacturing & Assembly principles to reduce part count,
+        Applied Design for Manufacturing &amp; Assembly principles to reduce part count,
         simplify assembly procedures, and lower total manufacturing cost on a consumer
         power tool platform.
       </p>
@@ -718,13 +670,13 @@
 
 <!-- TOOLS -->
 <section id="tools" class="tools-section">
-  <div class="section-header reveal">
+  <div class="section-header">
     <span class="section-num">03</span>
     <h2 class="section-title">Technical Toolkit</h2>
     <div class="section-rule"></div>
   </div>
 
-  <div class="tools-grid reveal">
+  <div class="tools-grid">
     <div class="tool-cell">
       <div class="tool-category">CAD</div>
       <div class="tool-name">SolidWorks</div>
@@ -755,7 +707,7 @@
     </div>
     <div class="tool-cell">
       <div class="tool-category">Standards</div>
-      <div class="tool-name">GD&T</div>
+      <div class="tool-name">GD&amp;T</div>
     </div>
     <div class="tool-cell">
       <div class="tool-category">Methodology</div>
@@ -780,11 +732,11 @@
 <footer>
   <div class="footer-name">Vaikunth Barot</div>
   <div class="footer-contact">
-    <a href="/cdn-cgi/l/email-protection#1761767e7c6279637f252e57707a767e7b3974787a"><span class="__cf_email__" data-cfemail="ceb8afa7a5bba0baa6fcf78ea9a3afa7a2e0ada1a3">[email&#160;protected]</span></a>
+    <a href="mailto:vaikunth29@gmail.com">vaikunth29@gmail.com</a>
     <a href="https://www.linkedin.com/in/vaikunthbarot/" target="_blank">LinkedIn ↗</a>
   </div>
   <div class="footer-copy">© 2026 · Toronto, ON</div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  const reveals = docume
+</body>
+</html>
