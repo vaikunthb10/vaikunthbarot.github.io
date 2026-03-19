@@ -61,45 +61,77 @@
     .nav-links a:hover { color: var(--accent); }
 
     /* ── HERO ── */
+    /* Full-width hero: name + intro span the whole page, stats/skills beside */
     .hero {
       min-height: 100vh;
+      padding-top: 52px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 3fr 2fr;
       border-bottom: 1px solid var(--rule);
-      padding-top: 52px; /* nav height */
     }
+
     .hero-left {
-      padding: 4rem 3rem 4rem 2.5rem;
+      padding: 5rem 4rem 5rem 5rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      border-right: 1px solid var(--rule);
     }
+
     .hero-eyebrow {
       font-family: 'DM Mono', monospace;
       font-size: 0.7rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 1rem;
-    }
-    .hero-name {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(4rem, 8vw, 7rem);
-      line-height: 0.92;
-      letter-spacing: 0.02em;
-      color: var(--ink);
       margin-bottom: 1.25rem;
     }
+
+    .hero-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(5rem, 9vw, 8rem);
+      line-height: 0.88;
+      letter-spacing: 0.02em;
+      color: var(--ink);
+      margin-bottom: 1.75rem;
+    }
     .hero-name span { color: var(--accent); }
+
     .hero-desc {
-      font-size: 0.95rem;
+      font-size: 1rem;
       color: var(--dim);
-      max-width: 38ch;
+      max-width: 46ch;
       margin-bottom: 2rem;
       line-height: 1.75;
     }
+
+    /* Inline stats bar under the description */
+    .hero-stats {
+      display: flex;
+      gap: 2.5rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid var(--rule);
+      margin-bottom: 2rem;
+    }
+    .hero-stat {}
+    .hero-stat .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      color: var(--ink);
+      line-height: 1;
+      letter-spacing: 0.02em;
+    }
+    .hero-stat .stat-num sup { color: var(--accent); font-size: 1rem; }
+    .hero-stat .stat-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-top: 0.2rem;
+    }
+
     .hero-cta { display: flex; gap: 0.75rem; }
+
     .btn-primary {
       background: var(--ink);
       color: var(--paper);
@@ -114,6 +146,7 @@
       display: inline-block;
     }
     .btn-primary:hover { background: var(--accent); border-color: var(--accent); }
+
     .btn-secondary {
       background: transparent;
       color: var(--ink);
@@ -129,71 +162,49 @@
     }
     .btn-secondary:hover { border-color: var(--ink); }
 
-    .hero-right { display: grid; grid-template-rows: 1fr 1fr; }
-    .hero-right-top {
-      border-bottom: 1px solid var(--rule);
-      padding: 3rem;
-      display: flex;
-      align-items: center;
-    }
-    .stat-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      width: 100%;
-    }
-    .stat {
-      padding: 1.25rem;
-      border-right: 1px solid var(--rule);
-      border-bottom: 1px solid var(--rule);
-    }
-    .stat:nth-child(even) { border-right: none; }
-    .stat:nth-child(3), .stat:nth-child(4) { border-bottom: none; }
-    .stat-num {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2.5rem;
-      color: var(--ink);
-      line-height: 1;
-      letter-spacing: 0.02em;
-    }
-    .stat-num sup { color: var(--accent); font-size: 1.2rem; vertical-align: baseline; }
-    .stat-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.62rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--dim);
-      margin-top: 0.3rem;
-    }
-    .hero-right-bottom {
-      padding: 2.5rem 3rem;
+    /* Right column: competencies panel */
+    .hero-right {
       display: flex;
       flex-direction: column;
       justify-content: center;
+      padding: 5rem 3.5rem;
+      border-left: 1px solid var(--rule);
     }
+
     .skills-label {
       font-family: 'DM Mono', monospace;
       font-size: 0.62rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--dim);
-      margin-bottom: 1rem;
+      margin-bottom: 1.25rem;
     }
-    .skills-list { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .skill-tag {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.05em;
-      padding: 0.3rem 0.75rem;
-      border: 1px solid var(--rule);
-      color: var(--dim);
-      background: var(--white);
+
+    .skills-list { display: flex; flex-direction: column; gap: 0; }
+
+    .skill-item {
+      font-size: 0.92rem;
+      color: var(--ink);
+      padding: 0.65rem 0;
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .skill-item:first-child { border-top: 1px solid var(--rule); }
+    .skill-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
     }
 
     /* ── SECTION SHARED ── */
     .section {
-      padding: 4rem 2.5rem;
+      padding: 4rem 5rem;
       border-bottom: 1px solid var(--rule);
     }
+
     .section-header {
       display: flex;
       align-items: baseline;
@@ -217,13 +228,13 @@
     /* ── EXPERIENCE ── */
     .exp-block {
       display: grid;
-      grid-template-columns: 180px 1fr;
+      grid-template-columns: 160px 1fr;
       gap: 3rem;
-      max-width: 900px;
+      max-width: 860px;
     }
     .exp-company {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       letter-spacing: 0.04em;
       color: var(--ink);
       margin-bottom: 0.25rem;
@@ -251,7 +262,7 @@
     .exp-achievements {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 0.75rem;
+      gap: 0.65rem;
     }
     .achievement { display: flex; gap: 0.6rem; align-items: flex-start; }
     .achievement-marker {
@@ -285,7 +296,6 @@
     }
     .project-card:hover { background: var(--paper); }
 
-    /* Image container – fixed height, image fills it */
     .project-img-wrap {
       width: 100%;
       height: 240px;
@@ -303,10 +313,8 @@
       height: 100%;
       object-fit: contain;
       display: block;
-      /* give robot image a little breathing room so it doesn't touch edges */
       padding: 0.75rem;
     }
-    /* leaf blower needs slightly more padding since it's a product shot */
     .project-img-wrap.light img { padding: 1.25rem; }
 
     .project-card-body { padding: 1.75rem 2rem 2rem; flex: 1; }
@@ -350,19 +358,16 @@
       color: var(--dim);
     }
 
-    /* full-width third card – no image */
     .project-card.wide {
       grid-column: 1 / -1;
       flex-direction: row;
       align-items: flex-start;
-      gap: 3rem;
     }
     .project-card.wide .project-card-body { padding: 2rem 2.5rem; }
-    .project-card.wide .project-desc { max-width: 55ch; }
 
     /* ── TOOLS ── */
     .tools-section {
-      padding: 4rem 2.5rem;
+      padding: 4rem 5rem;
       border-bottom: 1px solid var(--rule);
     }
     .tools-grid {
@@ -390,7 +395,7 @@
 
     /* ── FOOTER ── */
     footer {
-      padding: 2rem 2.5rem;
+      padding: 2rem 5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -418,7 +423,7 @@
     }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 800px) {
+    @media (max-width: 860px) {
       .hero { grid-template-columns: 1fr; padding-top: 48px; }
       .hero-right { display: none; }
       .hero-left { padding: 3rem 1.5rem; }
@@ -428,9 +433,9 @@
       .exp-block { grid-template-columns: 1fr; gap: 1rem; }
       .exp-achievements { grid-template-columns: 1fr; }
       .projects-grid { grid-template-columns: 1fr; }
-      .project-card.wide { flex-direction: column; gap: 0; }
+      .project-card.wide { flex-direction: column; }
       .tools-grid { grid-template-columns: 1fr 1fr; }
-      footer { flex-direction: column; gap: 0.75rem; text-align: center; }
+      footer { flex-direction: column; gap: 0.75rem; text-align: center; padding: 2rem 1.5rem; }
       .footer-contact { flex-direction: column; gap: 0.5rem; align-items: center; }
     }
   </style>
@@ -458,6 +463,26 @@
       in regulated pharmaceutical manufacturing. I bridge design, automation,
       and execution to build systems that scale.
     </p>
+
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="stat-num">$5<sup>M+</sup></div>
+        <div class="stat-label">Capital Projects</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-num">1.5<sup>K+</sup></div>
+        <div class="stat-label">Assets Managed</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-num">40<sup>+</sup></div>
+        <div class="stat-label">Change Controls</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-num">0</div>
+        <div class="stat-label">Audit Findings</div>
+      </div>
+    </div>
+
     <div class="hero-cta">
       <a class="btn-primary" href="mailto:vaikunth29@gmail.com">Get in touch</a>
       <a class="btn-secondary" href="https://www.linkedin.com/in/vaikunthbarot/" target="_blank">LinkedIn ↗</a>
@@ -465,38 +490,16 @@
   </div>
 
   <div class="hero-right">
-    <div class="hero-right-top">
-      <div class="stat-grid">
-        <div class="stat">
-          <div class="stat-num">$5<sup>M+</sup></div>
-          <div class="stat-label">Capital Projects</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">1.5<sup>K+</sup></div>
-          <div class="stat-label">Assets Managed</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">40<sup>+</sup></div>
-          <div class="stat-label">Change Controls</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">0</div>
-          <div class="stat-label">Audit Findings</div>
-        </div>
-      </div>
-    </div>
-    <div class="hero-right-bottom">
-      <p class="skills-label">Core competencies</p>
-      <div class="skills-list">
-        <span class="skill-tag">Mechanical Design</span>
-        <span class="skill-tag">GMP Manufacturing</span>
-        <span class="skill-tag">Mechatronics</span>
-        <span class="skill-tag">Capital Project Delivery</span>
-        <span class="skill-tag">DFMA</span>
-        <span class="skill-tag">FEA Analysis</span>
-        <span class="skill-tag">Root Cause Analysis</span>
-        <span class="skill-tag">PLC Systems</span>
-      </div>
+    <p class="skills-label">Core competencies</p>
+    <div class="skills-list">
+      <div class="skill-item"><span class="skill-dot"></span>Mechanical Design</div>
+      <div class="skill-item"><span class="skill-dot"></span>GMP Manufacturing</div>
+      <div class="skill-item"><span class="skill-dot"></span>Mechatronics</div>
+      <div class="skill-item"><span class="skill-dot"></span>Capital Project Delivery</div>
+      <div class="skill-item"><span class="skill-dot"></span>DFMA</div>
+      <div class="skill-item"><span class="skill-dot"></span>FEA Analysis</div>
+      <div class="skill-item"><span class="skill-dot"></span>Root Cause Analysis</div>
+      <div class="skill-item"><span class="skill-dot"></span>PLC Systems</div>
     </div>
   </div>
 </header>
@@ -561,8 +564,6 @@
   </section>
 
   <div class="projects-grid">
-
-    <!-- Project 01 -->
     <div class="project-card">
       <div class="project-img-wrap dark">
         <img src="assets/space-mining-robot.png" alt="Space Mining Robot" />
@@ -586,7 +587,6 @@
       </div>
     </div>
 
-    <!-- Project 02 -->
     <div class="project-card">
       <div class="project-img-wrap light">
         <img src="assets/dfma-leaf-blower-cad.png" alt="DFMA Leaf Blower" />
@@ -609,7 +609,6 @@
       </div>
     </div>
 
-    <!-- Project 03 – full width, no image -->
     <div class="project-card wide">
       <div class="project-card-body">
         <div class="project-index">Project 03</div>
@@ -628,7 +627,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </div>
 
